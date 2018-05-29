@@ -1,0 +1,17 @@
+{% extends 'mainMenu/base.html' %}
+{% block content %}
+    <p> {{ task }}</p>
+
+    <ul>
+
+            <li>
+                <p>Наименование: {{ task.name }}</p>
+                <p>Проект: {{ task.project }}</p>
+                <p>Автор: {{ task.author }}</p>
+                <p>Исполнитель: {{ task.implementer }}</p>
+                <p>Статус: {{ task.status }}</p>
+                <p>Описание: {{ task.description }}</p>
+            </li>
+
+    </ul>
+{% endblock content %}

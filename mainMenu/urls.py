@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^mainMenu/', views.index, name='index'),
     url(r'^tasks/$', views.tasks, name='tasks'),
     url(r'^tasks/(?P<task_id>\d+)/$', views.task, name='task'),
+    url(r'^new_task/$', views.new_task, name='new_task'),
 ]

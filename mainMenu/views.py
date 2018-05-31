@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from task.models import Task
+from task.forms import TaskForm
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 
 def index(request):
@@ -19,3 +22,19 @@ def task(request, task_id):
     entries = task.entry_set.order_by('-text')
     context = {'task': task, 'entries': entries}
     return render(request, 'mainMenu/task.html', context)
+
+
+def new_task(request):
+    """Определяет новую задачу."""
+    if request.method != 'POST':
+    # Данные не отправлялись; создается пустая форма.
+        form = TaskForm()
+
+    else:
+    # Отправлены данные POST; обработать данные.
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('mainMenu:tasks'))
+    context = {'form': form}
+    return render(request, 'mainMenu/new_task.html', context)

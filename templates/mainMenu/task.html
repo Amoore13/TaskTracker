@@ -4,15 +4,18 @@
 
     <ul>
 
-            <li>
-                <p>Наименование: {{ task.name }}</p>
-                <p>Проект: {{ task.project }}</p>
-                <p>Автор: {{ task.author }}</p>
-                <p>Исполнитель: {{ task.implementer }}</p>
-                <p>Статус: {{ task.status }}</p>
-                <p>Описание: {{ task.description }}</p>
-            </li>
+        <li>
+            <p>Наименование: {{ task.name }}</p>
+            <p>Проект: {{ task.project }}</p>
+            <p>Автор: {{ task.author }}</p>
+            <p>Исполнитель: {{ task.implementer }}</p>
+            <p>Статус: {{ task.status }}</p>
+            <p>Описание: {{ task.description }}</p>
+        </li>
 
+        <p>
+            <a href="{% url 'mainMenu:edit_task' task.id %}">Редактировать запись</a>
+        </p>
 
 
     </ul>

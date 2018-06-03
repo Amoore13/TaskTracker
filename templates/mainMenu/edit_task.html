@@ -1,0 +1,35 @@
+{% extends "mainMenu/base.html" %}
+{% block content %}
+    <p><a href="{% url 'mainMenu:task' task.id %}">{{ task }}</a></p>
+
+    <p>Edit task:</p>
+
+    <form action="{% url 'mainMenu:edit_task' task.id %}" method='post'>
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Название задачи</label>
+            <input type="text" name="{{ form.name.name }}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Проект</label>
+            <input type="text" name="{{ form.project.name }}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Статус</label>
+            <input type="text" name="{{ form.status.name }}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Исполнитель</label>
+            <input type="text" name="{{ form.implementer.name }}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Автор</label>
+            <input type="text" name="{{ form.author.name }}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Описание</label>
+            <input type="text" name="{{ form.description.name }}" class="form-control">
+        </div>
+        <button name="submit">Сохранить изменения</button>
+    </form>
+{% endblock content %}

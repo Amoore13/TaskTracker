@@ -3,7 +3,7 @@
  <p>Add a new task:</p>
 	 <form action="{% url 'mainMenu:new_task' %}" method='post'>
 	 {% csrf_token %}
-	  <div class="form-group">
+	                <div class="form-group">
                         <label>Название задачи</label>
                         <input type="text" name="{{ form.name.name }}" class="form-control">
                     </div>

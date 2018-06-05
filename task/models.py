@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import models, User
 
 
 # class Status(models.Model):
@@ -27,13 +28,14 @@ class Task(models.Model):
         return self.name
 
 
-class Entry(models.Model):
-    topic = models.ForeignKey(Task, on_delete='CASCADE')
+class Comment(models.Model):
+    task = models.ForeignKey(Task, on_delete='CASCADE')
+    #user = models.ForeignKey(User, on_delete='CASCADE')
     text = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        verbose_name_plural = 'entries'
+        verbose_name_plural = 'comments'
 
         def __str__(self):
             return self.text[:50] + "..."

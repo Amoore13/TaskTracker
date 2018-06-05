@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^tasks/$', views.tasks, name='tasks'),
     url(r'^tasks/(?P<task_id>\d+)/$', views.task, name='task'),
     url(r'^new_task/$', views.new_task, name='new_task'),
-    url(r'^edit_task/(?P<task_id>\d+)/$', views.edit_task(), name='edit_task'),
+    url(r'^add_comment/$', views.add_comment, name='add_comment'),
+    url(r'^edit_task/(?P<task_id>\d+)/$', views.edit_task, name='edit_task'),
 ]

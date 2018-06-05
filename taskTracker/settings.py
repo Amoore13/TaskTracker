@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     'mainMenu',
     'task',
+    'comments',
+    'users'
 ]
 
 MIDDLEWARE = [
